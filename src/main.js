@@ -17,41 +17,41 @@ Vue.prototype.$http = Util;
 
 // 路由配置
 const RouterConfig = {
-    mode: 'history',
-    routes: Routers
+  mode: 'history',
+  routes: Routers
 };
 const router = new VueRouter(RouterConfig);
 
 router.beforeEach((to, from, next) => {
-    iView.LoadingBar.start();
-    Util.title(to.meta.title);
-    next();
+  iView.LoadingBar.start();
+  Util.title(to.meta.title);
+  next();
 });
 
 router.afterEach(() => {
-    iView.LoadingBar.finish();
-    window.scrollTo(0, 0);
+  iView.LoadingBar.finish();
+  window.scrollTo(0, 0);
 });
 
 const store = new Vuex.Store({
-    state: {
-        isChatToggle: true,
-        isChatOpen: true
-    },
-    getters: {
+  state: {
+    isChatToggle: true,
+    isChatOpen: true
+  },
+  getters: {
 
-    },
-    mutations: {
+  },
+  mutations: {
 
-    },
-    actions: {
+  },
+  actions: {
 
-    }
+  }
 });
 
 new Vue({
-    el: '#app',
-    router: router,
-    store: store,
-    render: h => h(App)
+  el: '#app',
+  router: router,
+  store: store,
+  render: h => h(App)
 });

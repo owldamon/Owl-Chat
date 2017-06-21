@@ -9,6 +9,7 @@
     }
 
     .index h1 {
+        margin-bottom: 20px;
         height: 150px;
     }
 
@@ -19,6 +20,11 @@
     .index h2 {
         color: #666;
         margin-bottom: 200px;
+    }
+
+    .index h2 .signUp{
+        margin-right: 30px;
+        color: #00cc66;
     }
 
     .index h2 p {
@@ -34,13 +40,12 @@
         <Row type="flex" justify="center" align="middle">
             <Col span="24">
                 <h1>
-                    <img src="">
+                    <img src="src/assets/owl.png">
                 </h1>
                 <h2>
-                    <p>Welcome to MyChat app!</p>
-                    <router-link :to="{name: 'signUp'}">注册</router-link>
+                    <p>Welcome to OwlChat app!</p>
+                    <router-link :to="{name: 'signUp'}" class="signUp">注册</router-link>
                     <router-link :to="{name: 'home'}">登录</router-link>
-                    <a href=""></a>
                 </h2>
             </Col>
         </Row>

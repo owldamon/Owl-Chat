@@ -101,13 +101,6 @@
             }
         },
         created(){
-            this.$http.ajax({
-                url: '/hello/userlist',
-            }).then((data)=> {
-                console.log(data.data)
-            }).catch((error)=> {
-                console.log(error)
-            })
             this.$Message.success('登录成功');
         },
         methods: {
