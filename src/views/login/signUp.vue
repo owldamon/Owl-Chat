@@ -76,9 +76,7 @@
                     password: '',
                     passwdCheck: '',
                     mail: '',
-                    city: '',
                     gender: '',
-                    interest: [],
                     date: '',
                     desc: ''
                 },
@@ -112,24 +110,34 @@
             }
         },
         methods: {
+						trimStr(str){
+							return str.replace(/(^\s*)|(\s*$)/g,"");
+						},
             handleSubmit (name) {
-                this.$refs[name].validate((valid) => {
-                    if (valid) {
-                        this.$http.ajax.post('/users/bar',{
-                            params: {
-                                name: 1
-                            }
-                        }).then((data)=>{
-                            console.log(data)
-                        })
-                        this.$Message.success('提交成功!');
-                    } else {
-                        this.$Message.error('表单验证失败!');
+              this.$refs[name].validate((valid) => {
+                if (valid) {
+									this.formValidate.name = this.trimStr(this.formValidate.name);
+									this.formValidate.password = this.trimStr(this.formValidate.password);
+                  this.$http.ajax.post('/users/bar',{
+                    params: {
+                      name: this.formValidate.name,
+											password: this.formValidate.password,
+											mail: this.formValidate.mail,
+											gender: this.formValidate.gender,
+											date: this.formValidate.date,
+											desc: this.formValidate.desc,
                     }
-                })
+                  }).then((data)=>{
+                    console.log(data);
+										this.$Message.success('提交成功!');
+                  })
+              	} else {
+                  this.$Message.error('表单验证失败!');
+                }
+              })
             },
             handleReset (name) {
-                this.$refs[name].resetFields();
+            	this.$refs[name].resetFields();
             }
         },
         created() {
