@@ -1,5 +1,5 @@
 {
-  "name": "Owl-Chat",
+  "name": "owlchat",
   "version": "1.0.0",
   "description": "a chatroom of Owl",
   "main": "index.js",

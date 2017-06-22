@@ -1,34 +1,47 @@
 <style lang="less" scoped>
-    .sign-up {
-        margin: 0 auto;
-        width: 1200px;
-        
-    }
+  .sign-up {
+    margin: -225px auto;
+    width: 600px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;	 
+  }
 </style>
 <template>
     <div class="sign-up">
         <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
-            <Form-item label="姓名" prop="name">
-                <Input v-model="formValidate.name" placeholder="请输入姓名"></Input>
-            </Form-item>
-            <Form-item label="密码" prop="password">
-                <Input type="password" v-model="formValidate.password" placeholder="请输入密码"></Input>
-            </Form-item>
+					<Row>
+						<Col span='12'>
+							<Form-item label="姓名" prop="name">
+									<Input v-model="formValidate.name" placeholder="请输入姓名"></Input>
+							</Form-item>
+						</Col>
+					</Row>
+					<Row>
+						<Col span='12'>
+							<Form-item label="密码" prop="password">
+									<Input type="password" v-model="formValidate.password" placeholder="请输入密码"></Input>
+							</Form-item>
+						</Col>
+						<Col span='12'>
              <Form-item label="确认密码" prop="passwdCheck">
                 <Input type="password" v-model="formValidate.passwdCheck" placeholder="请再输入密码"></Input>
             </Form-item>
+						</Col>
+					</Row>
+					<Row>
+						<Col span='12'>
             <Form-item label="邮箱" prop="mail">
                 <Input v-model="formValidate.mail" placeholder="请输入邮箱"></Input>
             </Form-item>
-            <Form-item label="选择生日">
-                <Row>
-                    <Col span="11">
-                        <Form-item prop="date">
-                            <Date-picker type="date" placeholder="选择日期" v-model="formValidate.date"></Date-picker>
-                        </Form-item>
-                    </Col>
-                </Row>
-            </Form-item>
+						</Col>
+						<Col span='12'>
+							<Form-item label="选择生日" prop="date">   
+								<Date-picker type="date" placeholder="选择日期" v-model="formValidate.date"></Date-picker> 
+							</Form-item>
+						</Col>
+					</Row>
             <Form-item label="性别" prop="gender">
                 <Radio-group v-model="formValidate.gender">
                     <Radio label="male">男</Radio>
@@ -67,7 +80,6 @@
                     gender: '',
                     interest: [],
                     date: '',
-                    time: '',
                     desc: ''
                 },
                 ruleValidate: {
@@ -90,7 +102,7 @@
                         { required: true, message: '请选择性别', trigger: 'change' }
                     ],
                     date: [
-                        { required: false, type: 'date', message: '请选择日期', trigger: 'change' }
+                        { required: true, type: 'date', message: '请选择日期', trigger: 'change' }
                     ],
                     desc: [
                         { required: true, message: '请输入个人介绍', trigger: 'blur' },
