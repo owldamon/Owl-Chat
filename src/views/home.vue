@@ -63,7 +63,7 @@
     <div class="layout">
         <Menu mode="horizontal" theme="dark" active-name="1">
             <div class="layout-logo" @click="a">{{user.logo}}</div>
-            <div class="layout-nav">
+            <!--<div class="layout-nav">
                 <Menu-item name="1">
                     <Icon type="ios-navigate"></Icon>
                     网站1
@@ -72,7 +72,7 @@
                     <Icon type="ios-keypad"></Icon>
                     网站2
                 </Menu-item>
-            </div>
+            </div>-->
             <div class="layout-user">
                 {{user.name}}
             </div>
